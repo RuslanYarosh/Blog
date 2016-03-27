@@ -18,15 +18,13 @@
 <ul>
 <li class="category"> Website </li>
 <li><%= link_to "Blog", root_path %> </li>
-<li> About </li>
+<li><%= link_to "About", about_path %></li>
 </ul>
 
 <ul>
 <li class="category"> Social </li>
 <li><a href="https://vk.com">Vkontakte</a></li>
-<li> <a href="https://vk.com">Vkontakte</a></li>
-<li> <a href="https://vk.com">Vkontakte</a></li>
-<li> <a href="https://vk.com">Vkontakte</a></li>
+<li> <a href="https://ru-ru.facebook.com/">Facebook</a></li>
 </ul>
 
 <p class="sign_in">Admin Login</p>
@@ -34,7 +32,14 @@
 
 <div id="main_content">
    <div id="header">
+   <% if current_page?(root_path) %>
    	<p>All Posts</p>
+    <% elsif current_page?(about_path) %>
+    <p>About</p>
+    <% else %>
+    <%= link_to "Back to All Posts", root_path %>
+    <% end %>
+
 
    	<div class="buttons">
    		<%= link_to '<button class="button">New Post</button>'.html_safe, new_post_path %>
