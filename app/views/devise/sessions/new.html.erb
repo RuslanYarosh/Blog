@@ -2,6 +2,12 @@
 <h2>Log in</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+<div>
+    Add Your <%= f.label :avatar %>:
+    <%= f.file_field :avatar %>
+</div>
+
   <div><%= f.label :email %><br />
   <%= f.email_field :email, autofocus: true %></div>
   <br>
