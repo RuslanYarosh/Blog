@@ -9,7 +9,12 @@
     </ul>
     </div>
     <% end %>
-<p>
+
+
+ 
+<% unless @post.user.nil? %>
+<%= image_tag @post.user.avatar.url(:thumb)%>
+<% end %>
 <%= f.label :title %></p></br>
 <%= f.text_field :title %>
 </p>

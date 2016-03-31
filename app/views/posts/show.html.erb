@@ -11,6 +11,10 @@ Submitted <%= time_ago_in_words(@post.created_at) %> Ago
 <% end %>
 </p>
 
+<% unless @post.user.nil? %>
+  <%= image_tag @post.user.avatar.url(:thumb)%>
+<% end %>
+
 <p class="body">
 <%= @post.body %>
 </p>
@@ -18,6 +22,8 @@ Submitted <%= time_ago_in_words(@post.created_at) %> Ago
 <div class="comments">
 <h2><%= @post.comments.count %></h2>
 <%= render @post.comments %>
+
+
 
 <h3>Add a comment:</h3>
 <%= render "comments/form" %>
